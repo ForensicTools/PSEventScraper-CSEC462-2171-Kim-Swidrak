@@ -71,12 +71,15 @@ class Application(QtGui.QMainWindow):
 		checkbox_1 = QtGui.QCheckBox("imageinfo", pluginPop)
 		checkbox_2 = QtGui.QCheckBox("kdbgscan", pluginPop)
 		checkbox_3 = QtGui.QCheckBox("pslist", pluginPop)
+		checkbox4 = QtGui.QCheckBox("VistaSP1x86", popUp)
+		checkbox5 = QtGui.QCheckBox("VistaSP2x64", popUp)
+		checkbox6 = QtGui.QCheckBox("Win07x86", popUp)
+		checkbox7 = QtGui.QCheckBox("Win07x64", popUp)
+		checkbox8 = QtGui.QCheckBox("Win10x86", popUp)
+		checkbox9 = QtGui.QCheckBox("Win10x64", popUp)
+		checkbox10 = QtGui.QCheckBox("CentOSx64", popUp)
 
 
-		label3.move(0,0)
-		label3.setFont(QtGui.QFont("Times",weight = QtGui.QFont.Bold))
-		label3.show()
-		
 
 		checkbox_1.move(0,20)
 		pluginList.addButton(checkbox_1)
@@ -93,7 +96,65 @@ class Application(QtGui.QMainWindow):
 		checkbox_3.move(0,80)
 		pluginList.addButton(checkbox_3)
 		checkbox_3.show()
+		
+		checkbox4.move(0,80)
+		buttonList.addButton(checkbox4)
+		checkbox4.show()
 
+		checkbox5.move(0,100)
+		buttonList.addButton(checkbox5)
+		checkbox5.show()
+		
+		checkbox6.move(0,120)
+		buttonList.addButton(checkbox6)
+		checkbox6.show()
+
+		checkbox7.move(0,140)
+		buttonList.addButton(checkbox7)
+		checkbox7.show()
+		
+		checkbox8.move(0,160)
+		buttonList.addButton(checkbox8)
+		checkbox8.show()
+		
+		checkbox9.move(0,180)
+		buttonList.addButton(checkbox9)
+		checkbox9.show()
+			
+		label2.move(0,200)
+		label2.setFont(QtGui.QFont("Times",weight = QtGui.QFont.Bold))
+		label2.show()
+
+		checkbox10.move(0,220)
+		buttonList.addButton(checkbox10)
+		checkbox10.show()
+		
+
+	def profileInfo(self, button):
+		text = self.linetext.text()
+		length_initial = text.length()
+		self.linetext.insert(" --profile=") 
+		self.linetext.insert(button.text())
+		thing = " --profile="
+		
+		#length_initial = text.length()
+		counter = 0
+		#Get length of the string and get length of the both inserts. Remove them and input the new insert.
+		if thing in text:
+			hi = text.count(thing)
+			if hi >= 1:
+				length_e = self.linetext.text()
+				length_entire = length_e.length()
+				length_cut = length_entire - length_initial
+				#print("length_entire: ", length_entire)	
+				#print("length_initial: ", length_initial)			
+				#print("length_cut: ",length_cut)
+				real = length_cut * 2
+				#self.linetext.cursorBackward(real, length_cut)
+				while( counter < real):
+					self.linetext.backspace()
+					counter = counter + 1		
+		
 	
 
 
